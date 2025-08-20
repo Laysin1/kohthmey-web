@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Header from "./Header";
 import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
 import { Separator } from "./ui/separator";
 import { motion } from "framer-motion";
 import { Facebook, Linkedin, Youtube, MapPin, Phone, Mail } from "lucide-react";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Footer from "./Footer";
 
 const AboutUs = () => {
   const values = [
@@ -37,29 +40,34 @@ const AboutUs = () => {
 
   const timeline = [
     {
-      year: "2015",
-      title: "Company Founded",
-      description: "Koh Thmey Technology established in Phnom Penh, Cambodia.",
-    },
-    {
-      year: "2017",
-      title: "TNAOT App Launch",
-      description: "Launched our flagship digital media platform.",
+      year: "2018",
+      title: "Platform Establishment & Launch",
+      description:
+        "APP V1.0 officially launched, along with social media accounts. Initially focused on daily news services in Chinese and Khmer, providing timely and accurate news information for local Cambodian users.",
     },
     {
       year: "2019",
-      title: "Regional Expansion",
-      description: "Expanded operations to Vietnam and Thailand.",
+      title: "Service Diversification",
+      description:
+        "Expanded from single daily news service to a diversified service system, launched innovative features like treasure hunting activities, encouraging more user interaction and providing rich entertainment content and practical functions.",
     },
     {
-      year: "2021",
-      title: "5M Users Milestone",
-      description: "TNAOT App reached 5 million active users.",
+      year: "2020",
+      title: "Digital Transformation",
+      description:
+        "Fully embraced digital marketing, launched social media management and digital advertising services, providing professional digital marketing solutions for clients.",
     },
     {
-      year: "2023",
-      title: "Technology Innovation",
-      description: "Launched AI-powered content recommendation system.",
+      year: "2022",
+      title: "Media Service Expansion",
+      description:
+        "Established a comprehensive media submission and interview service system, providing professional media communication services for enterprises and organizations, becoming a well-known media communication service provider in the industry.",
+    },
+    {
+      year: "2024-Present",
+      title: "Social Media Platform Upgrade",
+      description:
+        "APP fully upgraded to a professional social media platform where professional media companies, NGOs, and various organizations can publish content, announcements, promotions, and videos, achieving content monetization. Provides five core services: media submission, creative production, event planning, digital marketing, and technical development.",
     },
   ];
 
@@ -85,15 +93,117 @@ const AboutUs = () => {
       image: "https://api.dicebear.com/7.x/avataaars/svg?seed=pisach",
     },
   ];
+  const events: {
+    title: string;
+    description: string;
+    date: string;
+    image: string;
+    link: string;
+  }[] = [
+    {
+      title: "Birthday Party 2025",
+      description:
+        "Join us for a joyful celebration filled with fun, laughter, and unforgettable memories as we mark the special moments of Birthday Party 2025.",
+      date: "April 2025",
+      link: "https://www.facebook.com/tnaot.kh",
+      image: "/images/event-1.jpg",
+    },
+    {
+      title: "Happy Women's Day",
+      description:
+        "Celebrating the strength, courage, and achievements of women around the world. Join us in honoring their inspiring journey.",
+      date: "March 2025",
+      link: "https://www.facebook.com/share/p/16oejR8od8/",
+      image: "/images/event-2.jpg",
+    },
+    {
+      title: "Chinese New Year Events 2025",
+      description:
+        "Celebrate the vibrant traditions and festivities of Chinese New Year 2025, featuring colorful parades, cultural performances, and community events welcoming the Year of the Snake.",
+      date: "January 2025",
+      link: "https://www.facebook.com/share/p/1B5XVKZJRd/",
+      image: "/images/event-3.jpg",
+    },
+    {
+      title: "Chrismas Party 2024",
+      description:
+        "Celebrate the joy and warmth of the season at our Christmas Party 2024, filled with festive cheer, music, and holiday fun for everyone.",
+      date: "December 2024",
+      link: "https://www.facebook.com/share/p/19gu8r1zb7/",
+      image: "/images/event-4.jpg",
+    },
+    {
+      title: "People to People Exchange Amateur Badminton Championships 2024",
+      description:
+        "Join badminton enthusiasts from across the region for thrilling matches and friendly competition at the 2024 Amateur Championships.",
+      date: "September 2024",
+      link: "https://www.facebook.com/tnaot.kh",
+      image: "/images/event-5.jpg",
+    },
+    {
+      title: "Harbor Group Team Buiding Party 2023",
+      description:
+        "Strengthen bonds and build teamwork with fun activities and celebrations at Harbor Group’s 2023 team building event.",
+      date: "April 2023",
+      link: "https://www.facebook.com/share/p/177HK5ddFt/",
+      image: "images/event-6.jpg",
+    },
+    {
+      title: "National and Career Fair 2022 at Khos Pich",
+      description:
+        "Engaging with the community through our outreach initiatives.",
+      date: "October 2022",
+      link: "https://www.facebook.com/share/p/19AvTSNedH/",
+      image: "/images/event-7.png",
+    },
+    {
+      title: "Harbor Group Annual Trip 2022",
+      description:
+        "Experience memorable moments and camaraderie during the Harbor Group’s 2022 Annual Trip filled with adventure and fun.",
+      date: "April 2022",
+      link: "https://www.facebook.com/share/p/1DubSVv3FS/",
+      image: "/images/event-8.jpg",
+    },
+  ];
+  const heroImages = [
+    "/images/img1.jpg",
+    "/images/img2.jpg",
+    "/images/img3.jpg",
+    "/images/img4.jpg",
+    "/images/img5.jpg",
+    "/images/img6.jpg",
+  ];
+  const [currentIndex, setCurrentIndex] = useState(0);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
+    }, 5000); // change image every 3 seconds
 
+    return () => clearInterval(interval); // cleanup on unmount
+  }, [heroImages.length]);
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
       <Header />
 
       {/* Hero Section */}
-      <section className="relative h-96 bg-gradient-to-r from-[#1E40AF] to-[#1E3A8A] text-white flex items-center justify-center">
-        <div className="text-center px-4">
+      <section className="relative h-96 text-white flex items-center justify-center overflow-hidden">
+        {/* Background Images */}
+
+        {heroImages.map((img, index) => (
+          <motion.img
+            key={index}
+            src={img}
+            alt={`Hero ${index}`}
+            className="absolute inset-0 w-full h-full object-cover"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: index === currentIndex ? 1 : 0 }}
+            transition={{ duration: 1 }}
+          />
+        ))}
+
+        {/* Text Overlay */}
+        <div className="relative text-center px-4 z-10">
           <motion.h1
             className="text-4xl md:text-6xl font-bold mb-4"
             initial={{ opacity: 0, y: 20 }}
@@ -108,10 +218,11 @@ const AboutUs = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Leading Cambodia's digital transformation since 2015
+            Leading Cambodia's digital transformation since 201
           </motion.p>
         </div>
       </section>
+      {/* Hero Section End */}
 
       {/* Company Story */}
       <section className="py-20 px-4 md:px-8 lg:px-16 bg-white">
@@ -122,31 +233,32 @@ const AboutUs = () => {
                 Our Story
               </h2>
               <p className="text-gray-600 mb-6 text-lg leading-relaxed">
-                Founded in 2015, Koh Thmey Technology began with a simple yet
-                ambitious vision: to transform Cambodia's digital landscape and
-                connect millions of people through innovative technology
-                solutions.
+                Koh Thmey is a leading company in the digital and media
+                industry, best known for its flagship brand, TNAOT APP. This
+                brand holds cultural significance in the digital world and plays
+                an important role for advertisers and commercial purposes.
               </p>
               <p className="text-gray-600 mb-6 text-lg leading-relaxed">
-                What started as a small team of passionate developers has grown
-                into one of Southeast Asia's leading digital media and
-                technology companies, serving over 5 million users across the
-                region.
+                Our dedication to authenticity and depth allows us to create
+                content that engages and informs audiences, strengthens consumer
+                relationships, and delivers captivating products. Koh Thmey and
+                TNAOT APP have a strong track record in social media
+                interactions, news, entertainment, and educational content,
+                which guides our strategy to build on existing strengths and
+                invest in new resources.
               </p>
               <p className="text-gray-600 text-lg leading-relaxed">
-                Today, we continue to push boundaries, creating platforms that
-                not only inform and entertain but also empower communities to
-                connect, share, and grow together in the digital age.
+                For more information about Koh Thmey, please dial 023922788.
               </p>
             </div>
             <div className="relative">
               <img
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80"
+                src="/images/img6.jpg"
                 alt="Team collaboration"
                 className="rounded-lg shadow-lg w-full h-auto"
               />
               <div className="absolute -bottom-6 -right-6 bg-[#FACC15] p-6 rounded-lg shadow-lg hidden md:block">
-                <p className="font-bold text-gray-900 text-2xl">8+</p>
+                <p className="font-bold text-gray-900 text-2xl">6+</p>
                 <p className="text-gray-800">Years of Innovation</p>
               </div>
             </div>
@@ -173,9 +285,14 @@ const AboutUs = () => {
                 Our Mission
               </h3>
               <p className="text-gray-600 text-lg leading-relaxed">
-                To empower Southeast Asian communities through innovative
-                digital media platforms and technology solutions that connect,
-                inform, and inspire millions of users every day.
+                Koh Thmey Technology is focused and positioned for growth in the
+                South East Asian media sector.
+              </p>
+              <p className="text-gray-600 text-lg leading-relaxed">
+                <br />
+                Our mission is to become the leading media company in the region
+                by providing exclusive content for users and quality target data
+                for investors.
               </p>
             </Card>
             <Card className="p-8 bg-white shadow-md">
@@ -183,9 +300,15 @@ const AboutUs = () => {
                 Our Vision
               </h3>
               <p className="text-gray-600 text-lg leading-relaxed">
-                To be the leading digital media and technology company in
-                Southeast Asia, setting the standard for innovation, quality,
-                and social impact in the digital ecosystem.
+                Our corporate culture is one of team work and commitment to each
+                other in reaching beyond boundaries to inspire with a
+                consistently open, honest, ethical and genuine team spirit
+                atmosphere.
+              </p>
+              <p className="text-gray-600 text-lg leading-relaxed">
+                <br />
+                Koh Thmey Core Values are Quality, Responsibility, Integrity,
+                Respect and Teamwork.
               </p>
             </Card>
           </div>
@@ -211,56 +334,270 @@ const AboutUs = () => {
         </div>
       </section>
 
-      {/* Timeline */}
-      <section className="py-20 px-4 md:px-8 lg:px-16 bg-white">
+      {/* Timeline Section */}
+      <section className="section-padding bg-white">
         <div className="container mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Our Journey
             </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              From a startup to a regional leader - here's how we've grown over
-              the years.
+            <p className="text-xl text-gray-600">
+              Witness our growth journey and milestone moments
             </p>
           </div>
 
-          <div className="relative">
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-[#1E40AF] hidden md:block"></div>
-            <div className="space-y-12">
+          <div className="relative max-w-6xl mx-auto">
+            {/* Timeline Line */}
+            <div className="absolute top-0 left-5 md:left-1/2 transform md:-translate-x-1/2 w-0.5 h-full bg-[#1E40AF]"></div>
+
+            <div className="space-y-8 md:space-y-0">
               {timeline.map((item, index) => (
-                <motion.div
+                <div
                   key={item.year}
-                  className={`flex items-center ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}
-                  initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.2 }}
+                  className="flex flex-col md:flex-row md:items-center relative"
                 >
-                  <div className="flex-1 md:w-1/2">
-                    <Card
-                      className={`p-6 ${index % 2 === 0 ? "md:mr-8" : "md:ml-8"} bg-white shadow-md`}
-                    >
-                      <div className="flex items-center mb-4">
-                        <div className="bg-[#FACC15] text-black px-3 py-1 rounded-full font-bold text-sm">
-                          {item.year}
-                        </div>
+                  {/* Left Side Card */}
+                  <div
+                    className={`flex-1 px-6 ${
+                      index % 2 === 0
+                        ? "md:pr-8 md:text-right"
+                        : "md:order-2 md:pl-8 md:text-left"
+                    }`}
+                  >
+                    <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm hover:shadow-md transition-all duration-300">
+                      <div className="text-[#FACC15] font-bold text-base mb-1">
+                        {item.year}
                       </div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-2">
+                      <h3 className="text-lg font-bold text-gray-900 mb-2">
                         {item.title}
                       </h3>
-                      <p className="text-gray-600">{item.description}</p>
-                    </Card>
+                      <p className="text-gray-600 text-sm leading-relaxed">
+                        {item.description}
+                      </p>
+                    </div>
                   </div>
-                  <div className="hidden md:block w-4 h-4 bg-[#1E40AF] rounded-full border-4 border-white shadow-lg relative z-10"></div>
-                  <div className="flex-1 md:w-1/2"></div>
-                </motion.div>
+
+                  {/* Timeline Dot */}
+                  <div className="absolute left-5 md:left-1/2 transform md:-translate-x-1/2 z-10">
+                    <div className="w-4 h-4 bg-[#1E40AF] rounded-full border-2 border-white shadow-md"></div>
+                  </div>
+
+                  {/* Right Side Spacer */}
+                  <div
+                    className={`flex-1 px-6 hidden md:block ${
+                      index % 2 === 0 ? "md:order-2" : ""
+                    }`}
+                  ></div>
+                </div>
               ))}
             </div>
           </div>
         </div>
       </section>
+      {/* Partner */}
+      
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <h3 className="text-3xl font-bold text-center mb-12">Our Partners</h3>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center justify-items-center">
+            
+            {/* Partner Card Example */}
+            <div className="flex flex-col items-center space-y-4">
+              <div 
+                className="w-28 h-28 bg-center bg-contain bg-no-repeat"
+                style={{ backgroundImage: "url('/partner/Wing.png')" }}
+              ></div>
+              <h4 className="text-center font-medium text-gray-700">Wing Bank</h4>
+            </div>
+
+            <div className="flex flex-col items-center space-y-4">
+              <div 
+                className="w-28 h-28 bg-center bg-contain bg-no-repeat"
+                style={{ backgroundImage: "url('/partner/eget.png')" }}
+              ></div>
+              <h4 className="text-center font-medium text-gray-700">E-Gets</h4>
+            </div>
+
+            <div className="flex flex-col items-center space-y-4">
+              <div 
+                className="w-28 h-28 bg-center bg-contain bg-no-repeat"
+                style={{ backgroundImage: "url('/partner/Huawei.png')" }}
+              ></div>
+              <h4 className="text-center font-medium text-gray-700">HUAWEI</h4>
+            </div>
+            <div className="flex flex-col items-center space-y-4">
+              <div 
+                className="w-28 h-28 bg-center bg-contain bg-no-repeat"
+                style={{ backgroundImage: "url('/partner/ABA.png')" }}
+              ></div>
+              <h4 className="text-center font-medium text-gray-700">ABA Bank</h4>
+            </div>
+            <div className="flex flex-col items-center space-y-4">
+              <div 
+                className="w-28 h-28 bg-center bg-contain bg-no-repeat"
+                style={{ backgroundImage: "url('/partner/abc.jpg')" }}
+              ></div>
+              <h4 className="text-center font-medium text-gray-700">ABC</h4>
+            </div>
+            <div className="flex flex-col items-center space-y-4">
+              <div 
+                className="w-28 h-28 bg-center bg-contain bg-no-repeat"
+                style={{ backgroundImage: "url('/partner/cdf.png')" }}
+              ></div>
+              <h4 className="text-center font-medium text-gray-700">CDF</h4>
+            </div>
+            <div className="flex flex-col items-center space-y-4">
+              <div 
+                className="w-28 h-28 bg-center bg-contain bg-no-repeat"
+                style={{ backgroundImage: "url('/partner/Cellcard.png')" }}
+              ></div>
+              <h4 className="text-center font-medium text-gray-700">Cellcard</h4>
+            </div>
+            <div className="flex flex-col items-center space-y-4">
+              <div 
+                className="w-28 h-28 bg-center bg-contain bg-no-repeat"
+                style={{ backgroundImage: "url('/partner/Forte.png')" }}
+              ></div>
+              <h4 className="text-center font-medium text-gray-700">Forte</h4>
+            </div>
+            <div className="flex flex-col items-center space-y-4">
+              <div 
+                className="w-28 h-28 bg-center bg-contain bg-no-repeat"
+                style={{ backgroundImage: "url('/partner/Harbor.png')" }}
+              ></div>
+              <h4 className="text-center font-medium text-gray-700">Harbor</h4>
+            </div>
+            <div className="flex flex-col items-center space-y-4">
+              <div 
+                className="w-28 h-28 bg-center bg-contain bg-no-repeat"
+                style={{ backgroundImage: "url('/partner/Le-Conde.png')" }}
+              ></div>
+              <h4 className="text-center font-medium text-gray-700">Le-Conde</h4>
+            </div>
+            <div className="flex flex-col items-center space-y-4">
+              <div 
+                className="w-28 h-28 bg-center bg-contain bg-no-repeat"
+                style={{ backgroundImage: "url('/partner/Mekong-Net.png')" }}
+              ></div>
+              <h4 className="text-center font-medium text-gray-700">Mekong-Net</h4>
+            </div>
+            <div className="flex flex-col items-center space-y-4">
+              <div 
+                className="w-28 h-28 bg-center bg-contain bg-no-repeat"
+                style={{ backgroundImage: "url('/partner/prince.jpg')" }}
+              ></div>
+              <h4 className="text-center font-medium text-gray-700">Prince</h4>
+            </div>
+            <div className="flex flex-col items-center space-y-4">
+              <div 
+                className="w-28 h-28 bg-center bg-contain bg-no-repeat"
+                style={{ backgroundImage: "url('/partner/Smart.png')" }}
+              ></div>
+              <h4 className="text-center font-medium text-gray-700">Smart</h4>
+            </div>
+            <div className="flex flex-col items-center space-y-4">
+              <div 
+                className="w-28 h-28 bg-center bg-contain bg-no-repeat"
+                style={{ backgroundImage: "url('/partner/STAPANA.jpg')" }}
+              ></div>
+              <h4 className="text-center font-medium text-gray-700">STAPANA</h4>
+            </div>
+            <div className="flex flex-col items-center space-y-4">
+              <div 
+                className="w-28 h-28 bg-center bg-contain bg-no-repeat"
+                style={{ backgroundImage: "url('/partner/The-Peak.png')" }}
+              ></div>
+              <h4 className="text-center font-medium text-gray-700">The-Peak</h4>
+            </div>
+            <div className="flex flex-col items-center space-y-4">
+              <div 
+                className="w-28 h-28 bg-center bg-contain bg-no-repeat"
+                style={{ backgroundImage: "url('/partner/tiger.png')" }}
+              ></div>
+              <h4 className="text-center font-medium text-gray-700">Tiger</h4>
+            </div>
+            <div className="flex flex-col items-center space-y-4">
+              <div 
+                className="w-28 h-28 bg-center bg-contain bg-no-repeat"
+                style={{ backgroundImage: "url('/partner/truemoney.png')" }}
+              ></div>
+              <h4 className="text-center font-medium text-gray-700">Truemoney</h4>
+            </div>
+            <div className="flex flex-col items-center space-y-4">
+              <div 
+                className="w-28 h-28 bg-center bg-contain bg-no-repeat"
+                style={{ backgroundImage: "url('/partner/vattanac.jpg')" }}
+              ></div>
+              <h4 className="text-center font-medium text-gray-700">Vattanac</h4>
+            </div>
+
+            
+            
+          </div>
+        </div>
+      </section>
+
+
+      {/* Company Events */}
+      <section className="py-20 px-4 md:px-8 lg:px-16 bg-gray-50">
+        <div className="container mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Company Events
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Celebrating our milestones and bringing our team together.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {events.map((event, index) => (
+              <motion.div
+                key={event.title}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <Card className="h-full flex flex-col shadow-md hover:shadow-lg transition-shadow">
+                  <img
+                    src={event.image}
+                    alt={event.title}
+                    className="w-full h-48 object-cover rounded-t-lg"
+                  />
+                  <CardContent className="flex flex-col justify-between h-full p-6">
+                    <div>
+                      <h3 className="text-xl font-bold text-gray-900 mb-2">
+                        {event.title}
+                      </h3>
+                      <p className="text-gray-600 text-sm mb-3">
+                        {event.description}
+                      </p>
+                      <p className="text-sm text-[#1E40AF] font-medium mb-4">
+                        📅 {event.date}
+                      </p>
+                    </div>
+                    <Button
+                      asChild
+                      className="mt-auto bg-[#1E40AF] text-white hover:bg-[#374b9a]"
+                    >
+                      <a
+                        href={event.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Read More
+                      </a>
+                    </Button>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Leadership Team */}
-      <section className="py-20 px-4 md:px-8 lg:px-16 bg-gray-50">
+      {/* <section className="py-20 px-4 md:px-8 lg:px-16 bg-gray-50">
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -296,7 +633,7 @@ const AboutUs = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Banner */}
       <section
@@ -316,121 +653,24 @@ const AboutUs = () => {
             Southeast Asia.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-[#FACC15] text-black hover:bg-[#EAB308] font-medium text-lg px-8 py-6">
-              Join Our Team
-            </Button>
-            <Button
-              variant="outline"
-              className="border-white text-white hover:bg-white hover:text-[#1E40AF] font-medium text-lg px-8 py-6"
-            >
-              Partner With Us
-            </Button>
+            <a href="/ContactForm">
+              <Button className="bg-[#FACC15] text-black hover:bg-[#EAB308] font-medium text-lg px-8 py-6">
+                Join Our Team
+              </Button>
+            </a>
+            <a href="/ContactForm">
+              <Button
+                variant="outline"
+                className="border-white text-black hover:bg-white hover:text-[#1E40AF] font-medium text-lg px-8 py-6"
+              >
+                Partner With Us
+              </Button>
+            </a>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-[#1E40AF] text-white py-12 px-4 md:px-8 lg:px-16">
-        <div className="container mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-            <div>
-              <h3 className="text-xl font-bold mb-4">Koh Thmey Technology</h3>
-              <p className="text-blue-100 mb-4">
-                Leading the digital future in Southeast Asia through innovation,
-                integrity, and excellence.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-              <ul className="space-y-2">
-                <li>
-                  <a
-                    href="/"
-                    className="text-blue-100 hover:text-white transition-colors"
-                  >
-                    Home
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/about"
-                    className="text-blue-100 hover:text-white transition-colors"
-                  >
-                    About Us
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/services"
-                    className="text-blue-100 hover:text-white transition-colors"
-                  >
-                    Services
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/careers"
-                    className="text-blue-100 hover:text-white transition-colors"
-                  >
-                    Careers
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
-              <div className="space-y-2">
-                <div className="flex items-center">
-                  <MapPin size={16} className="mr-2" />
-                  <span className="text-blue-100 text-sm">
-                    123 Norodom Blvd, Phnom Penh
-                  </span>
-                </div>
-                <div className="flex items-center">
-                  <Phone size={16} className="mr-2" />
-                  <span className="text-blue-100 text-sm">+855 23 456 789</span>
-                </div>
-                <div className="flex items-center">
-                  <Mail size={16} className="mr-2" />
-                  <span className="text-blue-100 text-sm">
-                    info@kohthmeytech.com
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Connect With Us</h3>
-              <div className="flex space-x-4">
-                <a
-                  href="#"
-                  className="bg-blue-800 hover:bg-blue-700 p-2 rounded-full transition-colors"
-                >
-                  <Facebook size={20} />
-                </a>
-                <a
-                  href="#"
-                  className="bg-blue-800 hover:bg-blue-700 p-2 rounded-full transition-colors"
-                >
-                  <Linkedin size={20} />
-                </a>
-                <a
-                  href="#"
-                  className="bg-blue-800 hover:bg-blue-700 p-2 rounded-full transition-colors"
-                >
-                  <Youtube size={20} />
-                </a>
-              </div>
-            </div>
-          </div>
-          <Separator className="bg-blue-800 mb-6" />
-          <div className="text-center text-blue-200 text-sm">
-            <p>
-              © {new Date().getFullYear()} Koh Thmey Technology. All rights
-              reserved.
-            </p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

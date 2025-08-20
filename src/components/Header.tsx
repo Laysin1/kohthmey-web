@@ -9,15 +9,15 @@ interface HeaderProps {
 }
 
 const Header = ({
-  logo = "/logo.svg",
+  logo = "/logo/logo.png",
   navLinks = [
-    { title: "Home", href: "/" },
-    { title: "About Us", href: "/about" },
-    { title: "Services", href: "/services" },
-    { title: "Brands", href: "/brands" },
-    { title: "News", href: "/news" },
-    { title: "Careers", href: "/careers" },
-    { title: "Contact", href: "/contact" },
+    { title: "Home", href: "/#" },
+    { title: "About Us", href: "/AboutUs" },
+    { title: "Services", href: "/Services" },
+    { title: "Our Produce", href: "/Brands" },
+    // { title: "News", href: "/News" },
+    { title: "Careers", href: "/Careers" },
+    { title: "Contact", href: "/ContactForm" },
   ],
 }: HeaderProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -42,17 +42,19 @@ const Header = ({
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? "bg-[#1E40AF] shadow-md" : "bg-transparent"}`}
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        isScrolled ? "bg-[#1E40AF] shadow-md" : "bg-transparent"
+      }`}
     >
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center">
-          <img src={logo} alt="Koh Thmey Technology" className="h-10" />
+          <img src={logo} alt="Koh Thmey Technology" className="h-12" />
           <span
-            className={`ml-2 font-bold text-xl ${isScrolled ? "text-white" : "text-white"}`}
-          >
-            Koh Thmey Technology
-          </span>
+            className={`ml-2 font-bold text-xl ${
+              isScrolled ? "text-white" : "text-white"
+            }`}
+          ></span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -61,14 +63,18 @@ const Header = ({
             <Link
               key={link.title}
               to={link.href}
-              className={`font-medium hover:text-[#FACC15] transition-colors ${isScrolled ? "text-white" : "text-white"}`}
+              className={`font-medium hover:text-[#FACC15] transition-colors ${
+                isScrolled ? "text-white" : "text-white"
+              }`}
             >
               {link.title}
             </Link>
           ))}
-          <Button className="bg-[#DC2626] hover:bg-[#DC2626]/90 text-white ml-4">
-            Work With Us
-          </Button>
+          <a href="/ContactForm" className="hidden md:inline-block">
+            <Button className="bg-[#DC2626] hover:bg-[#DC2626]/90 text-white ml-4">
+              Work With Us
+            </Button>
+          </a>
         </nav>
 
         {/* Mobile Menu Button */}

@@ -5,6 +5,7 @@ import { Card, CardContent } from "./ui/card";
 import { Input } from "./ui/input";
 import { Separator } from "./ui/separator";
 import { motion } from "framer-motion";
+import Footer from "./Footer";
 import {
   Facebook,
   Linkedin,
@@ -169,14 +170,14 @@ const News = () => {
   ];
 
   const filteredArticles = newsArticles.filter((article) =>
-    article.title.toLowerCase().includes(searchTerm.toLowerCase()),
+    article.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   const totalPages = Math.ceil(filteredArticles.length / articlesPerPage);
   const startIndex = (currentPage - 1) * articlesPerPage;
   const currentArticles = filteredArticles.slice(
     startIndex,
-    startIndex + articlesPerPage,
+    startIndex + articlesPerPage
   );
 
   const handlePageChange = (page: number) => {
@@ -450,108 +451,7 @@ const News = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-[#1E40AF] text-white py-12 px-4 md:px-8 lg:px-16">
-        <div className="container mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-            <div>
-              <h3 className="text-xl font-bold mb-4">Koh Thmey Technology</h3>
-              <p className="text-blue-100 mb-4">
-                Leading the digital future in Southeast Asia through innovation,
-                integrity, and excellence.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-              <ul className="space-y-2">
-                <li>
-                  <a
-                    href="/"
-                    className="text-blue-100 hover:text-white transition-colors"
-                  >
-                    Home
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/about"
-                    className="text-blue-100 hover:text-white transition-colors"
-                  >
-                    About Us
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/services"
-                    className="text-blue-100 hover:text-white transition-colors"
-                  >
-                    Services
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/news"
-                    className="text-blue-100 hover:text-white transition-colors"
-                  >
-                    News
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
-              <div className="space-y-2">
-                <div className="flex items-center">
-                  <MapPin size={16} className="mr-2" />
-                  <span className="text-blue-100 text-sm">
-                    123 Norodom Blvd, Phnom Penh
-                  </span>
-                </div>
-                <div className="flex items-center">
-                  <Phone size={16} className="mr-2" />
-                  <span className="text-blue-100 text-sm">+855 23 456 789</span>
-                </div>
-                <div className="flex items-center">
-                  <Mail size={16} className="mr-2" />
-                  <span className="text-blue-100 text-sm">
-                    info@kohthmeytech.com
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Connect With Us</h3>
-              <div className="flex space-x-4">
-                <a
-                  href="#"
-                  className="bg-blue-800 hover:bg-blue-700 p-2 rounded-full transition-colors"
-                >
-                  <Facebook size={20} />
-                </a>
-                <a
-                  href="#"
-                  className="bg-blue-800 hover:bg-blue-700 p-2 rounded-full transition-colors"
-                >
-                  <Linkedin size={20} />
-                </a>
-                <a
-                  href="#"
-                  className="bg-blue-800 hover:bg-blue-700 p-2 rounded-full transition-colors"
-                >
-                  <Youtube size={20} />
-                </a>
-              </div>
-            </div>
-          </div>
-          <Separator className="bg-blue-800 mb-6" />
-          <div className="text-center text-blue-200 text-sm">
-            <p>
-              © {new Date().getFullYear()} Koh Thmey Technology. All rights
-              reserved.
-            </p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

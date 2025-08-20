@@ -4,6 +4,7 @@ import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
 import { Separator } from "./ui/separator";
 import { motion } from "framer-motion";
+import Footer from "./Footer";
 import {
   Facebook,
   Linkedin,
@@ -84,7 +85,7 @@ const Brands = () => {
 
   const prevTestimonial = () => {
     setCurrentTestimonial(
-      (prev) => (prev - 1 + testimonials.length) % testimonials.length,
+      (prev) => (prev - 1 + testimonials.length) % testimonials.length
     );
   };
 
@@ -103,7 +104,7 @@ const Brands = () => {
           >
             <div className="mb-8">
               <img
-                src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=200&q=80"
+                src="/images/tnaot-app.png"
                 alt="TNAOT App Logo"
                 className="h-20 w-20 rounded-2xl mb-6 shadow-lg"
               />
@@ -118,14 +119,18 @@ const Brands = () => {
               of Cambodian digital culture in one app.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
+              <a href="https://play.google.com/store/apps/details?id=com.tnaot.newspro&pcampaignid=web_share">
               <Button className="bg-black text-white hover:bg-gray-800 flex items-center gap-2 px-6 py-3">
                 <Download size={20} />
                 Google Play
               </Button>
+              </a>
+              <a href="https://apps.apple.com/us/app/tnaot-khmer-content-platform/id1296073079">
               <Button className="bg-black text-white hover:bg-gray-800 flex items-center gap-2 px-6 py-3">
                 <Download size={20} />
                 App Store
               </Button>
+              </a>
             </div>
           </motion.div>
 
@@ -137,12 +142,12 @@ const Brands = () => {
           >
             <div className="relative">
               <img
-                src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&q=80"
+                src="/images/tnaot-1.png"
                 alt="TNAOT App on Phone"
                 className="max-w-sm h-auto rounded-3xl shadow-2xl transform rotate-6 hover:rotate-3 transition-transform duration-300"
               />
               <div className="absolute -bottom-4 -left-4 bg-[#FACC15] p-4 rounded-lg shadow-lg">
-                <p className="font-bold text-black text-lg">#1 App</p>
+                <p className="font-bold text-black text-lg">#1 Media App</p>
                 <p className="text-black text-sm">in Cambodia</p>
               </div>
             </div>
@@ -167,19 +172,19 @@ const Brands = () => {
             {[
               {
                 image:
-                  "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=300&q=80",
+                  "/images/tnaot-10.png",
                 title: "News Feed",
                 description: "Stay updated with real-time news",
               },
               {
                 image:
-                  "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=300&q=80",
+                  "/images/tnaot-6.png",
                 title: "Entertainment Hub",
                 description: "Endless entertainment options",
               },
               {
                 image:
-                  "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=300&q=80",
+                  "/images/tnaot-4.jpg",
                 title: "Social Features",
                 description: "Connect with your community",
               },
@@ -260,7 +265,7 @@ const Brands = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                number: "5M+",
+                number: "1M+",
                 label: "Active Users",
                 description: "Growing user base across Southeast Asia",
               },
@@ -270,7 +275,7 @@ const Brands = () => {
                 description: "Leading digital media platform",
               },
               {
-                number: "4.8",
+                number: "4.4",
                 label: "App Store Rating",
                 description: "Highly rated by users",
               },
@@ -310,14 +315,18 @@ const Brands = () => {
               platforms.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+              <a href="https://play.google.com/store/apps/details?id=com.tnaot.newspro&pcampaignid=web_share">
               <Button className="bg-black text-white hover:bg-gray-800 flex items-center gap-2 px-8 py-4 text-lg">
                 <Download size={24} />
                 Download for Android
               </Button>
+              </a>
+              <a href="https://apps.apple.com/us/app/tnaot-khmer-content-platform/id1296073079">
               <Button className="bg-black text-white hover:bg-gray-800 flex items-center gap-2 px-8 py-4 text-lg">
                 <Download size={24} />
                 Download for iOS
               </Button>
+              </a>
             </div>
             <p className="text-gray-500 text-sm">
               Free download • Available in Khmer and English
@@ -350,7 +359,7 @@ const Brands = () => {
                         size={20}
                         className="text-[#FACC15] fill-current"
                       />
-                    ),
+                    )
                   )}
                 </div>
                 <p className="text-gray-700 text-lg mb-6 italic">
@@ -431,88 +440,7 @@ const Brands = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-[#1E40AF] text-white py-12 px-4 md:px-8 lg:px-16">
-        <div className="container mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-            <div>
-              <h3 className="text-xl font-bold mb-4">TNAOT App</h3>
-              <p className="text-blue-100 mb-4">
-                Cambodia's #1 digital media platform, connecting millions of
-                users with news, entertainment, and community.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Features</h3>
-              <ul className="space-y-2">
-                <li>
-                  <span className="text-blue-100">Breaking News</span>
-                </li>
-                <li>
-                  <span className="text-blue-100">Entertainment</span>
-                </li>
-                <li>
-                  <span className="text-blue-100">Social Features</span>
-                </li>
-                <li>
-                  <span className="text-blue-100">Localized Content</span>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
-              <div className="space-y-2">
-                <div className="flex items-center">
-                  <MapPin size={16} className="mr-2" />
-                  <span className="text-blue-100 text-sm">
-                    123 Norodom Blvd, Phnom Penh
-                  </span>
-                </div>
-                <div className="flex items-center">
-                  <Phone size={16} className="mr-2" />
-                  <span className="text-blue-100 text-sm">+855 23 456 789</span>
-                </div>
-                <div className="flex items-center">
-                  <Mail size={16} className="mr-2" />
-                  <span className="text-blue-100 text-sm">
-                    support@tnaot.com
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Connect With Us</h3>
-              <div className="flex space-x-4">
-                <a
-                  href="#"
-                  className="bg-blue-800 hover:bg-blue-700 p-2 rounded-full transition-colors"
-                >
-                  <Facebook size={20} />
-                </a>
-                <a
-                  href="#"
-                  className="bg-blue-800 hover:bg-blue-700 p-2 rounded-full transition-colors"
-                >
-                  <Linkedin size={20} />
-                </a>
-                <a
-                  href="#"
-                  className="bg-blue-800 hover:bg-blue-700 p-2 rounded-full transition-colors"
-                >
-                  <Youtube size={20} />
-                </a>
-              </div>
-            </div>
-          </div>
-          <Separator className="bg-blue-800 mb-6" />
-          <div className="text-center text-blue-200 text-sm">
-            <p>
-              © {new Date().getFullYear()} TNAOT App by Koh Thmey Technology.
-              All rights reserved.
-            </p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

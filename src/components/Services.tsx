@@ -1,9 +1,10 @@
-import React from "react";
+
 import Header from "./Header";
 import ServiceCard from "./ServiceCard";
 import { Button } from "./ui/button";
 import { Separator } from "./ui/separator";
 import { motion } from "framer-motion";
+import Footer from "./Footer";
 import {
   Facebook,
   Linkedin,
@@ -18,6 +19,97 @@ import {
   Globe,
   BarChart3,
 } from "lucide-react";
+import React, { useState } from "react";
+const PromoVideos = () => {
+  const [activeVideo, setActiveVideo] = useState("kasen");
+
+  return (
+    <section className="py-20 px-4 md:px-8 lg:px-16 bg-gray-50">
+      <div className="container mx-auto flex flex-col items-center justify-center min-h-screen text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            Promotion Video Production
+          </h2>
+          <p className="text-gray-600 mb-8 max-w-3xl">
+            Our amazing Koh Thmey marketing team also produces outstanding quality
+            promotional videos for our partners for the purpose of advertisements
+            and exposures.
+          </p>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Video Tabs */}
+          <div className="lg:col-span-2">
+            <div className="flex border-b mb-4">
+              <button
+                onClick={() => setActiveVideo("kasen")}
+                className={`px-6 py-2 font-medium ${
+                  activeVideo === "kasen"
+                    ? "border-b-2 border-[#1E40AF] text-[#1E40AF]"
+                    : "text-gray-600 hover:text-[#1E40AF]"
+                }`}
+              >
+                KASEN Promo Video
+              </button>
+              <button
+                onClick={() => setActiveVideo("sgmc")}
+                className={`px-6 py-2 font-medium ${
+                  activeVideo === "sgmc"
+                    ? "border-b-2 border-[#1E40AF] text-[#1E40AF]"
+                    : "text-gray-600 hover:text-[#1E40AF]"
+                }`}
+              >
+                SGMC Promo Video
+              </button>
+            </div>
+
+            {/* Video Display */}
+            <div className="w-350px h-auto bg-gray-200 flex items-center justify-center">
+              {activeVideo === "kasen" ? (
+                <video
+                key="kasen"
+                autoPlay
+                muted
+                loop
+                playsInline
+                  controls
+                  className="w-full h-full object-cover rounded-lg"
+                >
+                  <source src="/Video/KASEN-video.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              ) : (
+                <video
+                key="sgmc" 
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  controls
+                  className="w-350px h-auto object-cover rounded-lg"
+                >
+                  <source src="/Video/SGMC-video.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              )}
+            </div>
+          </div>
+
+          {/* Contact Info */}
+          <div>
+            <h3 className="text-xl font-semibold mb-4">For more information, contact:</h3>
+            <p className="text-gray-700 mb-4">
+              <strong>Ms. Huy Leng Cheng</strong> – Chinese/English<br />
+              📞 096 988 2727
+            </p>
+            <p className="text-gray-700">
+              <strong>Mr. Chea Bunathsiak</strong> – Khmer/English<br />
+              📞 077 275 105
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
 
 const Services = () => {
   const services = [
@@ -124,6 +216,46 @@ const Services = () => {
           </div>
         </div>
       </section>
+
+      {/* Promotion Video Production Section */}
+<PromoVideos />
+
+
+{/* Harbor Property Section */}
+<section className="py-20 px-4 md:px-8 lg:px-16 bg-white">
+  <div className="container mx-auto text-start">
+    {/* Logo */}
+    <div className="flex justify-center mb-6">
+      <img
+        src="/logo/Harbor-logo.png"
+        alt="Harbor Property Logo"
+        className="h-20"
+      />
+    </div>
+
+    <h2 className="text-3xl text-center md:text-4xl font-bold text-gray-900 mb-4">
+      Harbor Property
+    </h2>
+    <p className="text-gray-600 max-w-3xl mx-auto mb-8 text-xl">
+      Find homes or sell any <span className="text-[#399152] font-semibold">property in Cambodia</span> with our professional <span className="text-[#399152] font-semibold">real estate app.</span> 
+     <br /> Harbor Property App is Cambodia’s leading real estate marketplace dedicated to empowering consumers with data, inspiration, and connecting them with the best local professionals.
+    </p>
+    <p className="text-gray-600 max-w-3xl mx-auto mb-8 text-xl">Search over properties for sale and rent across all of Cambodia. Plus upload a property to sell or lease your home for FREE! (https://www.harbor-property.com/）</p>
+    <p className="text-gray-600 max-w-3xl mx-auto mb-8 text-xl">Our core service included New Development, Borey, Condo, Land, Apartment, Shophouse, and Commercial etc.</p>
+    <p className="text-gray-600 max-w-3xl mx-auto mb-8 text-xl">Harbor Property App create an efficient, convenient, professional and accurate Cambodian real estate information service platform.</p>
+    <p className="text-gray-600 max-w-3xl mx-auto mb-8 text-xl">Available in 4 language, Eng, KH, CN, and Thai.</p>
+    <p className="text-gray-600 max-w-3xl mx-auto mb-8 text-xl">Selling, Buying and Renting with the Leading Real Estate Portal in Cambodia—— Harbor Property APP （https://www.harbor-property.com/）</p>
+    
+    {/* Features */}
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
+      <img src="/partner/Harbor-1.png" alt="Feature 1" className="rounded-lg shadow" />
+      <img src="/partner/Harbor-2.png" alt="Feature 2" className="rounded-lg shadow" />
+      <img src="/partner/Harbor-3.png" alt="Feature 3" className="rounded-lg shadow" />
+      <img src="/partner/Harbor-4.png" alt="Feature 4" className="rounded-lg shadow" />
+    </div>
+  </div>
+</section>
+
 
       {/* Process Section */}
       <section className="py-20 px-4 md:px-8 lg:px-16 bg-gray-50">
@@ -250,7 +382,7 @@ const Services = () => {
               </Button>
               <Button
                 variant="outline"
-                className="border-white text-white hover:bg-white hover:text-black font-medium text-lg px-8 py-6"
+                className="border-white text-black hover:bg-white hover:text-black font-medium text-lg px-8 py-6"
               >
                 Schedule Consultation
               </Button>
@@ -259,88 +391,7 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-[#1E40AF] text-white py-12 px-4 md:px-8 lg:px-16">
-        <div className="container mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-            <div>
-              <h3 className="text-xl font-bold mb-4">Koh Thmey Technology</h3>
-              <p className="text-blue-100 mb-4">
-                Leading the digital future in Southeast Asia through innovation,
-                integrity, and excellence.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Services</h3>
-              <ul className="space-y-2">
-                <li>
-                  <span className="text-blue-100">Digital Media Platforms</span>
-                </li>
-                <li>
-                  <span className="text-blue-100">Technology Solutions</span>
-                </li>
-                <li>
-                  <span className="text-blue-100">Advertising & Marketing</span>
-                </li>
-                <li>
-                  <span className="text-blue-100">Data & Analytics</span>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
-              <div className="space-y-2">
-                <div className="flex items-center">
-                  <MapPin size={16} className="mr-2" />
-                  <span className="text-blue-100 text-sm">
-                    123 Norodom Blvd, Phnom Penh
-                  </span>
-                </div>
-                <div className="flex items-center">
-                  <Phone size={16} className="mr-2" />
-                  <span className="text-blue-100 text-sm">+855 23 456 789</span>
-                </div>
-                <div className="flex items-center">
-                  <Mail size={16} className="mr-2" />
-                  <span className="text-blue-100 text-sm">
-                    info@kohthmeytech.com
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Connect With Us</h3>
-              <div className="flex space-x-4">
-                <a
-                  href="#"
-                  className="bg-blue-800 hover:bg-blue-700 p-2 rounded-full transition-colors"
-                >
-                  <Facebook size={20} />
-                </a>
-                <a
-                  href="#"
-                  className="bg-blue-800 hover:bg-blue-700 p-2 rounded-full transition-colors"
-                >
-                  <Linkedin size={20} />
-                </a>
-                <a
-                  href="#"
-                  className="bg-blue-800 hover:bg-blue-700 p-2 rounded-full transition-colors"
-                >
-                  <Youtube size={20} />
-                </a>
-              </div>
-            </div>
-          </div>
-          <Separator className="bg-blue-800 mb-6" />
-          <div className="text-center text-blue-200 text-sm">
-            <p>
-              © {new Date().getFullYear()} Koh Thmey Technology. All rights
-              reserved.
-            </p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
