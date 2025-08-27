@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Button } from "./ui/button";
+import { Link } from "react-router-dom";
 
 interface HeroSectionProps {
   headline?: string;
@@ -83,15 +84,16 @@ const HeroSection = ({
               className="bg-[#1E40AF] hover:bg-[#1E3A8A] text-white px-8 py-6 text-lg"
               asChild
             >
-              <a href={primaryCTA.href}>{primaryCTA.text}</a>
+              <Link to={primaryCTA.href}>{primaryCTA.text}</Link>
             </Button>
+
             <Button
               size="lg"
               variant="outline"
               className="bg-[#FACC15] hover:bg-[#EAB308] text-black border-[#FACC15] hover:border-[#EAB308] px-8 py-6 text-lg"
               asChild
             >
-              <a href={secondaryCTA.href}>{secondaryCTA.text}</a>
+              <Link to={secondaryCTA.href}>{secondaryCTA.text}</Link>
             </Button>
           </motion.div>
         </motion.div>
