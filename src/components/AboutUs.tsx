@@ -8,6 +8,7 @@ import { Facebook, Linkedin, Youtube, MapPin, Phone, Mail } from "lucide-react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Footer from "./Footer";
+import { Link } from "react-router-dom";
 
 const AboutUs = () => {
   const values = [
@@ -653,19 +654,19 @@ const AboutUs = () => {
             Southeast Asia.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="/ContactForm">
+            <Link to="/ContactForm">
               <Button className="bg-[#FACC15] text-black hover:bg-[#EAB308] font-medium text-lg px-8 py-6">
                 Join Our Team
               </Button>
-            </a>
-            <a href="/ContactForm">
+            </Link>
+            <Link to="/ContactForm">
               <Button
                 variant="outline"
                 className="border-white text-black hover:bg-white hover:text-[#1E40AF] font-medium text-lg px-8 py-6"
               >
                 Partner With Us
               </Button>
-            </a>
+            </Link>
           </div>
         </div>
       </section>
