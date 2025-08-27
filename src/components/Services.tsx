@@ -5,6 +5,7 @@ import { Button } from "./ui/button";
 import { Separator } from "./ui/separator";
 import { motion } from "framer-motion";
 import Footer from "./Footer";
+import { Link } from "react-router-dom";
 import {
   Facebook,
   Linkedin,
@@ -377,16 +378,21 @@ const Services = () => {
               collaborate and create something amazing together.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link to="/ContactForm">
               <Button className="bg-[#1E40AF] hover:bg-[#1E3A8A] text-white font-medium text-lg px-8 py-6">
                 Start Your Project
               </Button>
+            </Link>
+
+            <Link to="/ContactForm">
               <Button
                 variant="outline"
                 className="border-white text-black hover:bg-white hover:text-black font-medium text-lg px-8 py-6"
               >
                 Schedule Consultation
               </Button>
-            </div>
+            </Link>
+          </div>
           </motion.div>
         </div>
       </section>

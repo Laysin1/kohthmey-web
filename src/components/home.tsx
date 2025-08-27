@@ -6,6 +6,7 @@ import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
 import { Separator } from "./ui/separator";
 import Footer from "../components/Footer";
+import { Link } from "react-router-dom";
 import {
   ArrowRight,
   Download,
@@ -316,11 +317,11 @@ const Home = () => {
             Be part of one of the fastest-growing media technology companies in
             Cambodia.
           </p>
-          <a href="/Careers">
-          <Button className="bg-yellow-400 text-gray-900 hover:bg-yellow-500 font-medium text-lg px-8 py-6">
-            Explore Careers
-          </Button>
-          </a>
+          <Link to="/Careers">
+            <Button className="bg-yellow-400 text-gray-900 hover:bg-yellow-500 font-medium text-lg px-8 py-6">
+              Explore Careers
+            </Button>
+          </Link>
         </div>
       </section>
       <Footer />

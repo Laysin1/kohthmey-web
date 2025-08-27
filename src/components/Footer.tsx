@@ -2,6 +2,7 @@
 import React from "react";
 import { Facebook, Instagram, Linkedin, Mail, Youtube } from "lucide-react";
 import { Separator } from "./ui/separator";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -61,12 +62,11 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4 text-white">Quick Links</h3>
             <ul className="space-y-2">
-              <li><a href="/AboutUs" className="text-blue-100 hover:text-white transition-colors">About Us</a></li>
-              <li><a href="/Services" className="text-blue-100 hover:text-white transition-colors">Services</a></li>
-              <li><a href="/brands" className="text-blue-100 hover:text-white transition-colors">Brands</a></li>
-              {/* <li><a href="/News" className="text-blue-100 hover:text-white transition-colors">News</a></li> */}
-              <li><a href="/Careers" className="text-blue-100 hover:text-white transition-colors">Careers</a></li>
-              <li><a href="/ContactForm" className="text-blue-100 hover:text-white transition-colors">Contact</a></li>
+              <li><Link to="/AboutUs" className="text-blue-100 hover:text-white transition-colors">About Us</Link></li>
+              <li><Link to="/Services" className="text-blue-100 hover:text-white transition-colors">Services</Link></li>
+              <li><Link to="/brands" className="text-blue-100 hover:text-white transition-colors">Brands</Link></li>
+              <li><Link to="/Careers" className="text-blue-100 hover:text-white transition-colors">Careers</Link></li>
+              <li><Link to="/ContactForm" className="text-blue-100 hover:text-white transition-colors">Contact</Link></li>
             </ul>
           </div>
 

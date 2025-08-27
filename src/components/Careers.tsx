@@ -8,6 +8,7 @@ import { Card } from "./ui/card";
 import { Separator } from "./ui/separator";
 import { Send } from "lucide-react";
 import Footer from "./Footer";
+import { Link } from "react-router-dom";
 
 const Careers = () => {
   const values = [
@@ -283,11 +284,11 @@ const Careers = () => {
                   <p className="text-gray-700 text-l whitespace-pre-line">{job.description}</p>
                 )}
               </div>
-              <a href="/ContactForm">
-              <Button className="mt-4 bg-[#FACC15] text-black hover:bg-[#EAB308] font-medium">
-                Apply
-              </Button>
-              </a>
+              <Link to="/ContactForm">
+                <Button className="mt-4 bg-[#FACC15] text-black hover:bg-[#EAB308] font-medium">
+                  Apply
+                </Button>
+              </Link>
             </Card>
           ))}
           

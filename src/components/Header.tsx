@@ -15,7 +15,6 @@ const Header = ({
     { title: "About Us", href: "/AboutUs" },
     { title: "Services", href: "/Services" },
     { title: "Our Produce", href: "/Brands" },
-    // { title: "News", href: "/News" },
     { title: "Careers", href: "/Careers" },
     { title: "Contact", href: "/ContactForm" },
   ],
@@ -70,11 +69,11 @@ const Header = ({
               {link.title}
             </Link>
           ))}
-          <a href="/ContactForm" className="hidden md:inline-block">
+          <Link to="/ContactForm" className="hidden md:inline-block">
             <Button className="bg-[#DC2626] hover:bg-[#DC2626]/90 text-white ml-4">
               Work With Us
             </Button>
-          </a>
+          </Link>
         </nav>
 
         {/* Mobile Menu Button */}
