@@ -279,13 +279,14 @@ const ContactUs = () => {
       {/* Google Map */}
     <div className="mt-12 w-full h-80 md:h-96 rounded-lg overflow-hidden shadow-md">
       <iframe
-        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15635.874736234116!2d104.9272048!3d11.5541027!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31095159549b0931%3A0x2b0b63d4c29f580c!2zSGFyYm9yIFByb3BlcnR5IOa4r-a5vue9ruS4mg!5e0!3m2!1skm!2skh!4v1755664637952!5m2!1skm!2skh"
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d565.9863493451629!2d104.92969849675013!3d11.544271094967597!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3109517a45a7bed5%3A0xd8a2ae37461e456b!2sKohthmey%20Technology%20Co%2C.Ltd!5e0!3m2!1skm!2skh!4v1756973984208!5m2!1skm!2skh"
         className="w-full h-full border-0"
         allowFullScreen
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
       ></iframe>
     </div>
+
 
 
       <Separator />
