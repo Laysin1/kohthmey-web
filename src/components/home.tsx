@@ -160,14 +160,14 @@ const Home = () => {
                 alt="Team collaboration"
                 className="rounded-lg shadow-lg w-full h-auto"
               />
-              <a
-                href="/aboutus"
+              <Link
+                to="/AboutUs"
                 className="absolute inset-0 flex items-center justify-center"
               >
                 <div className="absolute -bottom-6 -right-6 bg-yellow-400 p-4 rounded-lg shadow-lg hidden md:block">
                   <p className="font-bold text-gray-900">Read more</p>
                 </div>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
