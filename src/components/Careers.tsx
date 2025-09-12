@@ -189,11 +189,12 @@ const Careers = () => {
                 className="p-6 shadow-md hover:shadow-lg transition-shadow flex flex-col justify-between bg-[#E8EBEF]"
               >
                 <div>
-                  {job.descriptions && renderRichText(job.descriptions)}
+                  
                   <h3 className="text-xl font-bold text-gray-900">{job.title}</h3>
                   <p className="text-gray-600 mb-2">
                     {job.department} | {job.location}
                   </p>
+                  {job.descriptions && renderRichText(job.descriptions)}
                   {job.job_requirements && renderRichText(job.job_requirements)}
                   {job.key_responsibilities && renderRichText(job.key_responsibilities)}
                 </div>
