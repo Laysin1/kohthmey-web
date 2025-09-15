@@ -172,7 +172,6 @@ const AboutUs = () => {
     "/images/img3.jpg",
     "/images/img4.jpg",
     "/images/img5.jpg",
-    "/images/img6.jpg",
   ];
   const [currentIndex, setCurrentIndex] = useState(0);
   useEffect(() => {
