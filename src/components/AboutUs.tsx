@@ -188,7 +188,7 @@ const AboutUs = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative h-96 text-white flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen text-white flex items-center justify-center">
         {/* Background Images */}
 
         {heroImages.map((img, index) => (
