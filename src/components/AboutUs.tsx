@@ -172,7 +172,6 @@ const AboutUs = () => {
     "/images/img3.jpg",
     "/images/img4.jpg",
     "/images/img5.jpg",
-    "/images/img6.jpg",
   ];
   const [currentIndex, setCurrentIndex] = useState(0);
   useEffect(() => {
@@ -211,7 +210,7 @@ const AboutUs = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            Innovation. Integrity. Impact.
+            Empowering Ideas. Connecting Communities.
           </motion.h1>
           <motion.p
             className="text-xl md:text-2xl text-blue-100"
@@ -219,7 +218,7 @@ const AboutUs = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Leading Cambodia's digital transformation since 201
+            Driving Cambodia’s digital future with creativity and integrity
           </motion.p>
         </div>
       </section>
