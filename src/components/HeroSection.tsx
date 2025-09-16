@@ -28,7 +28,7 @@ const HeroSection = ({
     text: "Join Our Team",
     href: "/Careers",
   },
-  backgroundImage = "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1920&q=80",
+  backgroundImage = "/public/logo/produce.jpg",
 }: HeroSectionProps) => {
   return (
     <section className="relative h-screen w-full bg-background overflow-hidden">
